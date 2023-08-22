@@ -13,10 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -54,4 +51,9 @@ public class EmployeeController {
         employeeService.saveOne(employee);
         return "redirect:/employee/list";
     }
+    @GetMapping("/list/employee")
+    public List<Employee> employees(@RequestBody List<com.example.prog4.repository.employee.entity.Employee> employeeList){
+        return employeeService.findAll(employeeMapper.toView(employeeList).stream().toList());
+    }
+
 }

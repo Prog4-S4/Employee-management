@@ -3,10 +3,7 @@ package com.example.prog4.model;
 import com.example.prog4.repository.employee.entity.Position;
 import com.example.prog4.repository.employee.entity.enums.Csp;
 import com.example.prog4.repository.employee.entity.enums.Sex;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,6 +15,7 @@ import java.util.List;
 @Builder
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Employee implements Serializable {
     private String id;
     private String firstName;

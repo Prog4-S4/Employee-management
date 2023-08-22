@@ -98,4 +98,30 @@ public class EmployeeMapper {
                 .positions(employee.getPositions())
                 .build();
     }
+    public List<Employee> toView(List<com.example.prog4.repository.employee.entity.Employee> employee) {
+        List<Employee> employeeViews = new ArrayList<>();
+        for (com.example.prog4.repository.employee.entity.Employee entity : employee) {
+            Employee employeeView = new Employee();
+            employeeView.getAddress();
+            employeeView.getBirthDate();
+            employeeView.getCin();
+            employeeView.getCnaps();
+            employeeView.getChildrenNumber();
+            employeeView.getCsp();
+            employeeView.getFirstName();
+            employeeView.getId();
+            employeeView.getImage();
+            employeeView.getDepartureDate();
+            employeeView.getLastName();
+            employeeView.getLastName();
+            employeeView.getPersonalEmail();
+            employeeView.getProfessionalEmail();
+            employeeView.getPhones();
+            employeeView.getPositions();
+            employeeView.getSex();
+            employeeViews.add(employeeView);
+            employeeView.getRegistrationNumber();
+        }
+        return employeeViews;
+}
 }

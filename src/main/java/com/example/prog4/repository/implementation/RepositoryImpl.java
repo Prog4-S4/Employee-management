@@ -11,6 +11,8 @@ import com.example.prog4.repository.mapper.EmployeeEntityMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @AllArgsConstructor
 public class RepositoryImpl implements Repository {
@@ -33,5 +35,15 @@ public class RepositoryImpl implements Repository {
     com.example.prog4.repository.employee.entity.Employee savedEmployee = repository.save(mapper.toDomain(employee));
     cnapsRepository.save(entityMapper.toDomain(savedEmployee));
     return mapper.toView(savedEmployee);
+  }
+
+
+
+  @Override
+  public List<Employee> getAll() {
+    List<com.example.prog4.repository.employee.entity.Employee> employees = repository.findAll();
+    List<EmployeeCnaps> employeeCnaps = cnapsRepository.findAll();
+
+    return mapper.toView(employees);
   }
 }
