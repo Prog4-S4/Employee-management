@@ -1,8 +1,8 @@
 package com.example.prog4.repository.cnaps.entity;
 
 
-import com.example.prog4.repository.cnaps.entity.enums.Csp;
-import com.example.prog4.repository.cnaps.entity.enums.Sex;
+import com.example.prog4.repository.employee.entity.enums.Csp;
+import com.example.prog4.repository.employee.entity.enums.Sex;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

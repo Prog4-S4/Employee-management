@@ -41,7 +41,7 @@ public class EmployeeService {
         );
     }
 
-    public void saveOne(Employee employee) {
-        entityRepository.save(employee);
+    public void saveOne(com.example.prog4.model.Employee employee) {
+        repository.save(employee);
     }
 }
