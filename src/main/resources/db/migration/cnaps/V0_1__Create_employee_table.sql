@@ -33,7 +33,7 @@ create table if not exists "employee_cnaps"
     csp                 csp     not null,
     image               text,
     professional_email  varchar not null unique,
-    address             varchar not null
+    address             varchar not null,
     end_to_end_id       varchar not null
 );
 
@@ -56,6 +56,6 @@ $BODY$
 
 CREATE TRIGGER insert_reference_number_trigger
     BEFORE INSERT
-    ON "employee"
+    ON "employee_cnaps"
     FOR EACH ROW
 EXECUTE FUNCTION generate_employ_custom_ref();
