@@ -32,7 +32,7 @@ import org.hibernate.annotations.ColumnTransformer;
 @NoArgsConstructor
 @EqualsAndHashCode
 @AllArgsConstructor
-@Table(name = "\"employee_cnaps\"", schema = "db2")
+@Table(name = "\"employee_cnaps\"")
 public class EmployeeCnaps {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
