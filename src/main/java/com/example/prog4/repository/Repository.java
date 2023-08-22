@@ -1,10 +1,11 @@
 package com.example.prog4.repository;
 
-import com.example.prog4.repository.cnaps.entity.EmployeeCnaps;
-import com.example.prog4.repository.employee.entity.Employee;
+import com.example.prog4.model.Employee;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface Repository {
-    Employee save(Employee entity);
+  Employee getById(String id);
+  Employee save(Employee employee);
 
-    EmployeeCnaps save(EmployeeCnaps entity);
 }

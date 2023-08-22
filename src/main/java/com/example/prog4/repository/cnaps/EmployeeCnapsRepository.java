@@ -9,4 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional("cnapsTransactionManager")
 public interface EmployeeCnapsRepository extends JpaRepository<EmployeeCnaps, String> {
+  EmployeeCnaps findByEndToEndId(String id);
 }
