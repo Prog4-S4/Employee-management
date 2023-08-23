@@ -28,7 +28,7 @@ public class EmployeeViewController extends PopulateController {
             Model model,
             HttpSession session
     ) {
-        model.addAttribute("employees", employeeService.getAll(filters).stream().map(employeeMapper::toView).toList())
+        model.addAttribute("employees", employeeService.getAll(filters))
                 .addAttribute("employeeFilters", filters)
                 .addAttribute("directions", Sort.Direction.values());
         session.setAttribute("employeeFiltersSession", filters);

@@ -1,7 +1,9 @@
 package com.example.prog4.repository.employee.dao;
 
+import com.example.prog4.model.EmployeeFilter;
 import com.example.prog4.model.exception.InternalServerErrorException;
 import com.example.prog4.model.utilities.DateRange;
+import com.example.prog4.repository.cnaps.entity.EmployeeCnaps;
 import com.example.prog4.repository.employee.entity.Employee;
 import com.example.prog4.repository.employee.entity.enums.Sex;
 import jakarta.persistence.EntityManager;
@@ -22,10 +24,7 @@ import java.util.List;
 public class EmployeeManagerDao {
     private EntityManager entityManager;
 
-    public List<Employee> findByCriteria(String lastName, String firstName, String countryCode, Sex sex, String position, DateRange entranceRange, DateRange departureRange, Pageable pageable) {
-        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Employee> query = builder.createQuery(Employee.class);
-        Root<Employee> root = query.from(Employee.class);
+    public <T> List<T> findByCriteria(EntityManager entityManager,CriteriaBuilder builder, CriteriaQuery<T> query, Root<T> root, String lastName, String firstName, String countryCode, Sex sex, String position, DateRange entranceRange, DateRange departureRange, Pageable pageable) {
 
         List<Predicate> predicates = new ArrayList<>();
 

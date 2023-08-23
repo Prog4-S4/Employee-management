@@ -28,10 +28,11 @@ public class EmployeeController {
     private EmployeeValidator employeeValidator;
     private EmployeeService employeeService;
 
+
     @GetMapping("/list/csv")
     public ResponseEntity<byte[]> getCsv(HttpSession session) {
         EmployeeFilter filters = (EmployeeFilter) session.getAttribute("employeeFiltersSession");
-        List<Employee> data = employeeService.getAll(filters).stream().map(employeeMapper::toView).toList();
+        List<Employee> data = employeeService.getAll(filters);
 
         String csv = CSVUtils.convertToCSV(data);
         byte[] bytes = csv.getBytes();
@@ -41,6 +42,7 @@ public class EmployeeController {
         headers.setContentLength(bytes.length);
         return new ResponseEntity<>(bytes, headers, HttpStatus.OK);
     }
+
 
     @GetMapping("/list/filters/clear")
     public String clearFilters(HttpSession session) {
