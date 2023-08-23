@@ -11,5 +11,5 @@ import java.util.List;
 public interface Repository {
   Employee getById(String id);
   Employee save(Employee employee);
-  List<Employee> getAll(EmployeeFilter filter, Pageable pageable);
+  List<Employee> getAll(EmployeeFilter filter);
 }

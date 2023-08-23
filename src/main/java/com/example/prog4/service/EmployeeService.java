@@ -28,7 +28,7 @@ public class EmployeeService {
     public List<Employee> getAll(EmployeeFilter filter) {
         Sort sort = Sort.by(filter.getOrderDirection(), filter.getOrderBy().toString());
         Pageable pageable = PageRequest.of(filter.getIntPage() - 1, filter.getIntPerPage(), sort);
-        return repository.getAll(filter,pageable);
+        return repository.getAll(filter);
 
     }
 

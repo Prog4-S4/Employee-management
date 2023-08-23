@@ -14,5 +14,4 @@ import java.util.List;
 public interface EmployeeCnapsRepository extends JpaRepository<EmployeeCnaps, String> {
   EmployeeCnaps findByEndToEndId(String id);
 
-  List<EmployeeCnaps> findByCriteria(EmployeeFilter filter);
 }

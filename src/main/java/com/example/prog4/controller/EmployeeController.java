@@ -31,7 +31,7 @@ public class EmployeeController {
     @GetMapping("/list/csv")
     public ResponseEntity<byte[]> getCsv(HttpSession session) {
         EmployeeFilter filters = (EmployeeFilter) session.getAttribute("employeeFiltersSession");
-        List<Employee> data = employeeService.getAll(filters).stream().map(employeeMapper::toView).toList();
+        List<Employee> data = employeeService.getAll(filters).stream().toList();
 
         String csv = CSVUtils.convertToCSV(data);
         byte[] bytes = csv.getBytes();
