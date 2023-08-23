@@ -10,6 +10,7 @@ import com.example.prog4.repository.cnaps.entity.EmployeeCnaps;
 import com.example.prog4.repository.employee.EmployeeRepository;
 import com.example.prog4.repository.employee.dao.EmployeeManagerDao;
 import com.example.prog4.repository.mapper.EmployeeEntityMapper;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -18,6 +19,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -32,6 +34,7 @@ public class RepositoryImpl implements Repository {
   private final EmployeeEntityMapper entityMapper;
   private final EmployeeMapper mapper;
   private EmployeeManagerDao employeeManagerDao;
+  private final EntityManager entityManager;
   @Override
   public Employee getById(String id) {
     com.example.prog4.repository.employee.entity.Employee employee = repository.findById(id).orElseThrow(() -> new NotFoundException("Not found id=" + id));
