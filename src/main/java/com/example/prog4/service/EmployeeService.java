@@ -25,14 +25,12 @@ public class EmployeeService {
         return repository.getById(id);
     }
 
-    public List<Employee> getAll(EmployeeFilter filter) {
-        Sort sort = Sort.by(filter.getOrderDirection(), filter.getOrderBy().toString());
-        Pageable pageable = PageRequest.of(filter.getIntPage() - 1, filter.getIntPerPage(), sort);
-        return repository.getAll(filter);
+  public List<Employee> getAll(EmployeeFilter filter) {
+    return repository.getAll(filter);
+  }
 
-    }
 
-    public void saveOne(com.example.prog4.model.Employee employee) {
+  public void saveOne(com.example.prog4.model.Employee employee) {
         repository.save(employee);
     }
 }
