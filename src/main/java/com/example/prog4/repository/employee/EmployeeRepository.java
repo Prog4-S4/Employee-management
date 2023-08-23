@@ -12,5 +12,4 @@ import java.util.List;
 @Repository
 @Transactional("employeeTransactionManager")
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
-    List<Employee> findAll(EmployeeFilter filter);
 }

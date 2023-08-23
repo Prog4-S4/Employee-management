@@ -44,8 +44,26 @@ public class RepositoryImpl implements Repository {
 
   @Override
   public List<Employee> getAll(EmployeeFilter filter) {
-    List<com.example.prog4.repository.employee.entity.Employee> employees = repository.findAll(filter);
-    List<EmployeeCnaps> employeesCnaps = cnapsRepository.findAll();
+    List<com.example.prog4.repository.employee.entity.Employee> employees = employeeManagerDao.findByCriteria(
+            filter.getLastName(),
+            filter.getFirstName(),
+            filter.getCountryCode(),
+            filter.getSex(),
+            filter.getPosition(),
+            filter.getEntrance(),
+            filter.getDeparture(),
+            Pageable.unpaged()
+    );
+    List<EmployeeCnaps> employeesCnaps = employeeManagerDao.findByEmployeCnapsCriteria(
+            filter.getLastName(),
+            filter.getFirstName(),
+            filter.getCountryCode(),
+            filter.getSex(),
+            filter.getPosition(),
+            filter.getEntrance(),
+            filter.getDeparture(),
+            Pageable.unpaged()
+            );
 
     return Collections.singletonList(mapper.toView(entityMapper.toDomainList(employeesCnaps, employees)));
   }
