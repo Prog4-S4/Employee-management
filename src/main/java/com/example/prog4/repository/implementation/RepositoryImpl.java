@@ -47,7 +47,8 @@ public class RepositoryImpl implements Repository {
 
   @Override
   public Employee save(Employee employee) {
-    com.example.prog4.repository.employee.entity.Employee savedEmployee = repository.save(mapper.toDomain(employee));
+    EmployeeCnaps actual = cnapsRepository.findByEndToEndId(employee.getId());
+    com.example.prog4.repository.employee.entity.Employee savedEmployee = repository.save(mapper.toDomain(employee, actual));
     cnapsRepository.save(entityMapper.toDomain(savedEmployee));
     return mapper.toView(savedEmployee);
   }

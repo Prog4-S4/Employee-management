@@ -2,6 +2,7 @@ package com.example.prog4.controller.mapper;
 
 import com.example.prog4.model.Employee;
 import com.example.prog4.model.exception.BadRequestException;
+import com.example.prog4.repository.cnaps.entity.EmployeeCnaps;
 import com.example.prog4.repository.employee.PositionRepository;
 import com.example.prog4.repository.employee.entity.Phone;
 import com.example.prog4.repository.employee.entity.Position;
@@ -22,7 +23,7 @@ public class EmployeeMapper {
     private PositionRepository positionRepository;
     private PhoneMapper phoneMapper;
 
-    public com.example.prog4.repository.employee.entity.Employee toDomain(Employee employee) {
+    public com.example.prog4.repository.employee.entity.Employee toDomain(Employee employee, EmployeeCnaps employeeCnaps) {
         try {
             List<Position> positions = new ArrayList<>();
             employee.getPositions().forEach(position -> {
@@ -43,7 +44,7 @@ public class EmployeeMapper {
                     .lastName(employee.getLastName())
                     .address(employee.getAddress())
                     .cin(employee.getCin())
-                    .cnaps(employee.getCnaps())
+                    .cnaps(employeeCnaps.getCnaps())
                     .registrationNumber(employee.getRegistrationNumber())
                     .childrenNumber(employee.getChildrenNumber())
                     // enums
